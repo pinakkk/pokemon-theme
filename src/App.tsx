@@ -289,30 +289,19 @@ function PokemonStarterSelection({ onStarterChosen }) {
 
       {/* Main Content */}
       <motion.div
-        className={`max-w-5xl w-full px-4 py-8 transition-all duration-500 ${
+        className={`w-full px-4 py-6 sm:py-8 transition-all duration-500 overflow-y-auto max-h-screen ${
           showConfirmation ? 'blur-sm scale-95' : 'blur-none scale-100'
         }`}
       >
         {/* Enhanced Header */}
         <motion.div
-          className="text-center mb-10"
+          className="text-center mb-4 sm:mb-6 lg:mb-10 px-2"
           initial={{ y: -80, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2, type: "spring", stiffness: 120 }}
         >
-          {/* <motion.h1 
-            className="text-5xl lg:text-6xl font-bold text-gray-800 mb-4 drop-shadow-lg"
-            animate={{ 
-              textShadow: selectedStarter 
-                ? "0 0 20px rgba(255, 215, 0, 0.5)" 
-                : "0 4px 8px rgba(0, 0, 0, 0.1)" 
-            }}
-          >
-            Choose Your Partner!
-          </motion.h1> */}
-          
           <motion.div
-            className="flex justify-center items-center gap-3 mb-4"
+            className="flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-3 mb-2 sm:mb-4"
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.5, type: "spring", stiffness: 200 }}
@@ -320,33 +309,33 @@ function PokemonStarterSelection({ onStarterChosen }) {
             <motion.img
               src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png"
               alt="Pokeball"
-              className="w-6 h-6"
+              className="w-5 h-5 sm:w-6 sm:h-6 hidden sm:block"
               animate={{ rotate: [0, 360] }}
               transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
             />
-            <span className="text-5xl lg:text-6xlfont-semibold text-gray-700">
+            <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-700">
               Select Your Partner Pokémon!
             </span>
             <motion.img
               src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png"
               alt="Pokeball"
-              className="w-6 h-6"
+              className="w-5 h-5 sm:w-6 sm:h-6 hidden sm:block"
               animate={{ rotate: [360, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
             />
           </motion.div>
           
-          <p className="text-gray-600 text-base max-w-xl mx-auto leading-relaxed">
+          <p className="text-gray-600 text-sm sm:text-base max-w-xl mx-auto leading-relaxed px-2">
             Each Pokémon has unique abilities and will be your companion throughout this birthday adventure!
           </p>
         </motion.div>
         
         {/* Enhanced Pokemon Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 justify-items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 justify-items-center px-2 sm:px-4">
           {starters.map((starter, index) => (
             <motion.div
               key={starter.id}
-              className={`relative bg-white rounded-2xl shadow-xl overflow-hidden cursor-pointer border-3 transition-all duration-300 w-full max-w-sm ${
+              className={`relative bg-white rounded-2xl shadow-xl overflow-hidden cursor-pointer border-3 transition-all duration-300 w-full max-w-xs ${
                 selectedStarter?.id === starter.id 
                   ? 'border-yellow-400 scale-105 shadow-yellow-400/30' 
                   : hoveredStarter?.id === starter.id
@@ -362,27 +351,17 @@ function PokemonStarterSelection({ onStarterChosen }) {
               onHoverStart={() => !selectedStarter && setHoveredStarter(starter)}
               onHoverEnd={() => setHoveredStarter(null)}
             >
-              {/* Selection Overlay */}
-              {selectedStarter?.id === starter.id && (
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-yellow-400/15 via-yellow-300/8 to-transparent rounded-2xl z-10"
-                  initial={{ scale: 0, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 0.4 }}
-                />
-              )}
-              
               {/* Card Header */}
-              <div className={`h-24 bg-gradient-to-br ${starter.bgGradient} relative overflow-hidden`}>
-                <div className="absolute top-3 left-3 right-3 flex justify-between items-center z-10">
-                  <div className={`px-3 py-1 rounded-full bg-gradient-to-r ${starter.typeGradient} text-white font-bold text-xs shadow-lg`}>
+              <div className={`h-16 sm:h-24 bg-gradient-to-br ${starter.bgGradient} relative overflow-hidden`}>
+                <div className="absolute top-2 sm:top-3 left-2 sm:left-3 right-2 sm:right-3 flex justify-between items-center z-10">
+                  <div className={`px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-gradient-to-r ${starter.typeGradient} text-white font-bold text-xs shadow-lg`}>
                     {starter.emoji} {starter.type}
                   </div>
-                  <div className="flex items-center gap-1 bg-white/90 rounded-full px-2 py-1">
+                  <div className="flex items-center gap-1 bg-white/90 rounded-full px-2 py-0.5 sm:py-1">
                     <img
                       src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png"
                       alt="Pokeball"
-                      className="w-4 h-4"
+                      className="w-3 h-3 sm:w-4 sm:h-4"
                     />
                     <span className="text-xs font-bold text-gray-700">#{starter.id.toString().padStart(3, '0')}</span>
                   </div>
@@ -400,9 +379,9 @@ function PokemonStarterSelection({ onStarterChosen }) {
               </div>
               
               {/* Pokemon Image */}
-              <div className="relative -mt-12 mb-4 flex justify-center">
+              <div className="relative -mt-8 sm:-mt-12 mb-2 sm:mb-4 flex justify-center">
                 <motion.div
-                  className="bg-white rounded-full p-3 shadow-lg border-3 border-gray-200"
+                  className="bg-white rounded-full p-2 sm:p-3 shadow-lg border-3 border-gray-200"
                   animate={selectedStarter?.id === starter.id ? {
                     scale: [1, 1.08, 1],
                     rotate: [0, 3, -3, 0],
@@ -420,21 +399,21 @@ function PokemonStarterSelection({ onStarterChosen }) {
                   <img
                     src={starter.sprite}
                     alt={starter.name}
-                    className="w-40 h-40"
+                    className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40"
                   />
                 </motion.div>
               </div>
               
               {/* Card Content */}
-              <div className="px-4 pb-4">
-                <h3 className="text-2xl font-bold text-gray-800 mb-2 text-center">{starter.name}</h3>
+              <div className="px-3 sm:px-4 pb-3 sm:pb-4">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-1 sm:mb-2 text-center">{starter.name}</h3>
                 
-                {/* Stats Bars - Compact */}
-                <div className="mb-3 space-y-1">
+                {/* Stats Bars - Compact and mobile friendly */}
+                <div className="mb-2 sm:mb-3 space-y-1">
                   {Object.entries(starter.stats).map(([stat, value], i) => (
                     <div key={stat} className="flex items-center justify-between">
-                      <span className="text-xs font-semibold text-gray-600 capitalize w-12">{stat}</span>
-                      <div className="flex-1 mx-2 bg-gray-200 rounded-full h-1.5">
+                      <span className="text-xs font-semibold text-gray-600 capitalize w-10 sm:w-12">{stat}</span>
+                      <div className="flex-1 mx-1 sm:mx-2 bg-gray-200 rounded-full h-1.5">
                         <motion.div
                           className={`h-1.5 rounded-full ${starter.color}`}
                           initial={{ width: 0 }}
@@ -442,21 +421,21 @@ function PokemonStarterSelection({ onStarterChosen }) {
                           transition={{ delay: 0.8 + index * 0.1 + i * 0.1, duration: 0.6 }}
                         />
                       </div>
-                      <span className="text-xs font-bold text-gray-800 w-6 text-right">{value}</span>
+                      <span className="text-xs font-bold text-gray-800 w-5 sm:w-6 text-right">{value}</span>
                     </div>
                   ))}
                 </div>
                 
                 {/* Ability */}
-                <div className="mb-3 p-2 bg-gray-50 rounded-lg">
-                  <div className="flex items-center justify-center gap-2">
-                    <span className="text-xs font-semibold text-gray-600">Ability:</span>
-                    <span className="text-xs font-bold text-gray-800">{starter.ability}</span>
+                <div className="mb-2 sm:mb-3 p-1.5 sm:p-2 bg-gray-50 rounded-lg">
+                  <div className="flex items-center justify-center gap-1 sm:gap-2">
+                    <span className="text-2xs sm:text-xs font-semibold text-gray-600">Ability:</span>
+                    <span className="text-2xs sm:text-xs font-bold text-gray-800">{starter.ability}</span>
                   </div>
                 </div>
                 
                 {/* Description */}
-                <p className="text-gray-600 text-xs text-center leading-relaxed">
+                <p className="text-gray-600 text-2xs sm:text-xs text-center leading-relaxed">
                   {starter.description}
                 </p>
               </div>

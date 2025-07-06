@@ -355,7 +355,7 @@ export const PokemonFinalMessage: React.FC = () => {
             </motion.div>
 
             <h1 className="text-4xl font-bold text-center text-red-600 mb-6 flex items-center justify-center gap-2">
-              🎉 HAPPY BIRTHDAY TRAINER NIHUUU! 🎉
+              🎉 HAPPY BIRTHDAY STRAWBERRY! 🎉
               <img
                 src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/master-ball.png"
                 alt="Master Ball"
@@ -400,7 +400,7 @@ export const PokemonFinalMessage: React.FC = () => {
                   repeatType: "reverse"
                 }}
               >
-                ILYSM TRAINER! 💖⚡️
+                ILYSM STRAWBERRY! 💖⚡️
               </motion.div>
             </div>
           </motion.div>
