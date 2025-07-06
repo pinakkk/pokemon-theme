@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
+import Pic1 from '../components/img/1.jpeg'
+import Pic2 from '../components/img/2.jpeg'
+import Pic3 from '../components/img/3.jpeg'
+import Pic4 from '../components/img/4.jpeg'
+
+
 // Pokemon card data
 const pokemonCards = [
   {
@@ -8,7 +14,7 @@ const pokemonCards = [
     name: "Snugglebun",
     type: "Cuddle Type",
     hp: 120,
-    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
+    image: Pic1,
     description: "\"Gives the warmest hugs in the Pokémon universe!\"",
     abilities: [
       { name: "Tickle Tornado", power: "70♡", icon: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/premier-ball.png" },
@@ -22,7 +28,7 @@ const pokemonCards = [
     name: "Gigglefloof",
     type: "Laughter Type",
     hp: 95,
-    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/39.png",
+    image: Pic2,
     description: "\"Causes unstoppable laughter with its silly dance moves!\"",
     abilities: [
       { name: "Chuckle Wave", power: "55♡", icon: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/heal-ball.png" },
@@ -36,7 +42,7 @@ const pokemonCards = [
     name: "Bubblezap",
     type: "Mischief Type",
     hp: 110,
-    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/172.png",
+    image: Pic3,
     description: "\"Always planning the next prank with a twinkle in its eye!\"",
     abilities: [
       { name: "Surprise Splash", power: "65♡", icon: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/dive-ball.png" },
@@ -50,7 +56,7 @@ const pokemonCards = [
     name: "Squishymeow",
     type: "Adorable Type",
     hp: 105,
-    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/133.png",
+    image: Pic4,
     description: "\"Melts hearts with its big sparkly eyes and tiny paws!\"",
     abilities: [
       { name: "Charm Overload", power: "75♡", icon: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/love-ball.png" },
@@ -90,7 +96,7 @@ const PokemonCard = ({ pokemon }) => {
         <motion.img
           src={pokemon.image}
           alt={pokemon.name}
-          className="object-contain w-40 h-40"
+          className="object-cover w-full h-full"
           animate={{
             scale: [1, 1.05, 1],
             rotate: [0, 2, -2, 0]

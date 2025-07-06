@@ -9,7 +9,7 @@ import { PokemonFinalMessage } from './components/PokemonFinalMessage';
 import PokemonPhotoGallery from './components/PokemonPhotoGallery';
 import bgMusic from './components/music/tummile.mp3';
 
-import CoverImg from './components/img/main.jpg'
+import CoverImg from './components/img/main.jpeg'
 
 // --- Pokemon Card Animation Component ---
 function PokemonCardIntro({ onContinue }) {
@@ -29,7 +29,7 @@ function PokemonCardIntro({ onContinue }) {
       >
         {/* Pokemon Card Header */}
         <div className="w-full flex justify-between items-center mb-2">
-          <span className="text-lg font-bold text-yellow-700 drop-shadow">Nihuuu</span>
+          <span className="text-lg font-bold text-yellow-700 drop-shadow">Strawberry Chan</span>
           <div className="flex items-center gap-2">
             <img
               src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png"

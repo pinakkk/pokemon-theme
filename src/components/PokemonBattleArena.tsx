@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles, CheckCircle } from 'lucide-react';
-import BurstS from './soundfx/burst.mp3';
 
 interface Pokemon {
   id: number;
@@ -50,15 +49,7 @@ export const PokemonBattleArena: React.FC<PokemonBattleArenaProps> = ({ onComple
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
   const [dragEnd, setDragEnd] = useState({ x: 0, y: 0 });
   const [showMissedMessage, setShowMissedMessage] = useState(false);
-  const audioRef = useRef<HTMLAudioElement>(null);
   const arenaRef = useRef<HTMLDivElement>(null);
-
-  // Initialize audio
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.volume = 0.6;
-    }
-  }, []);
 
   // Pokemon movement animation
   useEffect(() => {
@@ -158,12 +149,6 @@ export const PokemonBattleArena: React.FC<PokemonBattleArenaProps> = ({ onComple
     
     setPokeballs(prev => [...prev, newPokeball]);
     // No need to decrement pokeball count as they're unlimited
-    
-    // Play throw sound
-    if (audioRef.current) {
-      audioRef.current.currentTime = 0;
-      audioRef.current.play();
-    }
   };
 
   const attemptCatch = () => {
@@ -635,9 +620,6 @@ export const PokemonBattleArena: React.FC<PokemonBattleArenaProps> = ({ onComple
           </li>
         </ul>
       </motion.div>
-
-      {/* Audio */}
-      <audio ref={audioRef} src={BurstS} preload="auto" />
     </motion.div>
   );
 };

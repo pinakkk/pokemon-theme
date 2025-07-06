@@ -224,7 +224,7 @@ export const PokemonCakeCeremony: React.FC<PokemonCakeCeremonyProps> = ({ onComp
           className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-blue-500 to-yellow-500 flex items-center gap-3"
         >
           <Cake className="text-red-500" /> 
-          <span>Pokemon Birthday Party</span>
+          <span>Happy Birthday To You!</span>
           <Cake className="text-red-500" />
         </motion.h1>
       </motion.div>
@@ -445,17 +445,9 @@ export const PokemonCakeCeremony: React.FC<PokemonCakeCeremonyProps> = ({ onComp
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
               >
-                It's time to celebrate another year of your Pokemon journey! May your Pokedex be full and your battles victorious.
+                It's time to celebrate another year of your journey! So happy birthday to youuu
               </motion.p>
-              
-              <motion.p
-                className="text-lg text-blue-500 font-semibold inline-flex items-center gap-2 justify-center"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.6, duration: 0.6 }}
-              >
-                Gotta catch 'em all! <PartyPopper size={20} className="text-yellow-500" />
-              </motion.p>
+            
             </motion.div>
             
             {/* Next button - solid color instead of gradient */}
@@ -476,7 +468,7 @@ export const PokemonCakeCeremony: React.FC<PokemonCakeCeremonyProps> = ({ onComp
                 transition={{ duration: 2, repeat: Infinity }}
               >
                 <Stars size={22} className="text-white" />
-                Let's See Our Pokemon
+                Let's See Something Special
                 <Gift size={22} className="text-white" />
               </motion.button>
             )}
